@@ -1,0 +1,128 @@
+<view class="weui-cells weui-cells_after-title">
+  <view class="subject">
+    <view class="weui-cell__bd">
+      <text class="subject_text">{{detail[0].subject}}</text>
+      <text class="price_text">【￥{{detail[0].price}}/小时】</text>
+    </view>
+    <view style="margin-top:50rpx;margin-bottom:5rpx;">
+      <image src="./loc.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      <text class="detail_text">{{detail[0].city}}</text>
+      <image src="./sex.png" style="margin-right: 5px;margin-left: 20px;vertical-align: middle;width:20px; height: 20px;"></image>
+      <text class="detail_text" wx:if="{{detail[0].gender==0}}">男</text>
+      <text class="detail_text" wx:else>女</text>
+      <image src="./education.png" style="margin-right: 5px;margin-left: 20px;vertical-align: middle;width:20px; height: 20px;"></image>
+      <text class="detail_text">{{detail[0].grade}}</text>
+    </view>
+  </view>
+  <view class="weui-cell">
+    <image class="userinfo-avatar" src="{{detail[0].headImg}}"></image>
+    <view class="phone">
+      <text class="name-text">{{detail[0].name}}</text>
+      <view class="classname">
+        <image src="./phone.png" style="margin-right: 5px;vertical-align: middle;width:18px; height: 18px;"></image>
+        <!-- <text class="phone-text" wx:if="{{base==1}}">| {{detail[0].sphone}}</text>
+          <text class="phone-text" wx:else>| {{detail[0].tphone}}</text> -->
+        <text class="phone-text">| {{phone}}</text>
+      </view>
+
+    </view>
+  </view>
+</view>
+<view wx:if="{{base==1}}">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="./form.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+      <view class="weui-cell__bd">详情</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">授课地址</view>
+      <view class="weui-cell__ft">{{detail[0].address}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">可授课时间</view>
+      <view class="weui-cell__ft">{{detail[0].time}}</view>
+    </view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="./account.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+      <view class="weui-cell__bd">个人简介</view>
+    </view>
+  </view>
+  <view class="introduction">{{detail[0].introduction}}</view>
+</view>
+<view wx:else>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="./form.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+      <view class="weui-cell__bd">详情</view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">所在学校</view>
+      <view class="weui-cell__ft">{{detail[0].education}}</view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">专业</view>
+      <view class="weui-cell__ft">{{detail[0].major}}</view>
+    </view>
+
+    <view class="weui-cell">
+      <view class="weui-cell__bd">可授课时间</view>
+      <view class="weui-cell__ft">{{detail[0].time}}</view>
+    </view>
+
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+
+      <view class="weui-cell__hd">
+        <image src="./account.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+
+      <view class="weui-cell__bd">个人简介</view>
+
+    </view>
+  </view>
+  <view class="introduction">{{detail[0].introduction}}</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="./comment.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+      <view class="weui-cell__bd">评价</view>
+    </view>
+  </view>
+  <scroll-view class="comment_body">
+    <view class="comment"wx:if="{{comment.length==0}}">
+      <text>暂时没有人评价ta</text>
+    </view>
+    <view wx:for="{{comment}}">
+      <view class="comment">
+        <image class="userinfo-avatar" style="width:100rpx; height:100rpx;" src="{{item.headImg}}"></image>
+        <view class="phone">
+          <text class="name-text">{{item.name[0]}}同学</text>
+          <view class="stars">
+            <image style="width:30rpx; height:30rpx;" src="./stars.png" wx:key="{{item.stars}}"></image>
+          </view>
+        </view>
+        <text style="padding:20rpx;margin-left:200rpx;">{{item.generate[0]}}{{item.generate[1]}}{{item.generate[2]}}{{item.generate[3]}}.{{item.generate[5]}}{{item.generate[6]}}.{{item.generate[8]}}{{item.generate[9]}}</text>
+      </view>
+      <view class="comment_text">{{item.comment}}</view>
+    </view>
+    <view style='height:200rpx;'></view>
+  </scroll-view>
+</view>
+<view class="bar">
+
+  <button class="confirm" hidden="{{!islogin||state==base}}" bindtap="submit">立刻预约</button>
+
+  <button class="connect" bindtap="call">电话联系TA</button>
+</view>

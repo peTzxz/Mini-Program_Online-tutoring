@@ -1,0 +1,77 @@
+<view class="container">
+  <view bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{avatarUrl}}" background-size="cover" bindtap="login"></image>
+    <text class="userinfo-nickname" wx:if="{{!islogin}}" bindtap="login">{{userInfo.nickName}}</text>
+    <text class="userinfo-nickname" wx:else>{{userInfo.nickName}}</text>
+  </view>
+  <view class="level">
+    <image class="level_pic" src="../../images/LV.png" style="width:50rpx;height:50rpx;"></image>
+    <image class="level_num" src="{{lvPic}}" style="width:50rpx;height:50rpx;"></image>
+  </view>
+  <progress percent="{{percent}}" style="margin-left:60rpx; margin-right:60rpx;" stroke-width='8' active activeColor='#f7982a' />
+  <view class="progress_view">
+    <text style="color:#e6e6e6;font-size:25rpx;margin-left:65rpx;">{{sc}}/{{lvMax}}</text>
+    <text style="color:#e6e6e6;font-size:25rpx;margin-left:65rpx;">距离下个等级Lv.{{lv+1}}还需完成{{toNextLevel}}次课</text>
+  </view>
+
+</view>
+<view wx:if="{{islogin}}">
+  <view class="weui-cells weui-cells_after-title">
+    <navigator url="../mydata/mydata" open-type="navigate" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./my.png"></image>
+      <view class="weui-cell__bd">基本资料</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    <navigator url="../../main_page/main" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./book.png"></image>
+      <view class="weui-cell__bd">我的课程</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    <navigator url="../../myrelease/release" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./release.png"></image>
+      <view class="weui-cell__bd">我的发布</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    <navigator url="../../msg/msg" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./Message.png"></image>
+      <view class="weui-cell__bd">我的消息</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+    <navigator url="./balance" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./balanceicon.png"></image>
+      <view class="weui-cell__bd">我的余额</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">￥{{money}}.00</view>
+    </navigator>
+  </view>
+<button class="quit" bindtap="quit" hidden='{{!islogin}}'>退出当前帐号</button>
+</view>
+<view wx:else >
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell weui-cell_access"  bindtap="tip" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./my.png"></image>
+      <view class="weui-cell__bd">基本资料</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view> 
+    <view class="weui-cell weui-cell_access"  bindtap="tip" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./book.png"></image>
+      <view class="weui-cell__bd">我的课程</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view> 
+    <view class="weui-cell weui-cell_access"  bindtap="tip" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./release.png"></image>
+      <view class="weui-cell__bd">我的发布</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+   </view> 
+    <view class="weui-cell weui-cell_access"  bindtap="tip" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./Message.png"></image>
+      <view class="weui-cell__bd">我的消息</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+   </view>
+   <view class="weui-cell weui-cell_access"  bindtap="tip" hover-class="weui-cell_active">
+      <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./balanceicon.png"></image>
+      <view class="weui-cell__bd">我的余额</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view> 
+  </view>
+<button class="quit" bindtap="quit" hidden='{{!islogin}}'>退出当前帐号</button>
+</view>

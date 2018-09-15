@@ -1,0 +1,45 @@
+<scroll-view>
+  <!-- <view wx:for="{{raw}}">
+<text>{{item}}</text>
+</view> -->
+  <!-- <view class="weui-cells weui-cells_after-title">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="weui-cell weui-check__label" wx:for="{{checkboxItems}}" wx:key="{{item.value}}">
+        <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+        <view class="weui-cell__hd weui-check__hd_in-checkbox">
+          <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+          <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+        </view>
+        <view class="weui-cell__bd">{{item.name}}</view>
+      </label>
+    </checkbox-group>
+    <view class="weui-cell weui-cell_link">
+      <view class="weui-cell__bd">添加更多</view>
+    </view>
+  </view> -->
+  <!-- <view wx:for="{{raw}}"> -->
+  <view class="weui-cells__title">当前:{{current_question+1}}/30题</view>
+  <progress percent="{{(current_question+1)/30*100}}" style="padding-left:15px; padding-right:15px;" stroke-width='10'/>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+      <text class="q_text">{{raw[current_question].q}}</text>
+      </view>
+    </view>
+    <radio-group bindchange="radioChange">
+      <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="{{item.value}}">
+        <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+        <view class="weui-cell__bd" style='margin-left:30rpx;'>{{item.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+          <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+        </view>
+      </label>
+    </radio-group>
+  </view>
+  <button class="go2pre" hidden='{{current_question==0}}' bindtap='go2pre'>上一题</button>
+  <!-- <button class="go2pre" hidden='{{current_question==29}}'>下一题</button> -->
+  <button class="go2pre" hidden='{{current_question!=29}}' bindtap='submit'>提交</button>
+  <!-- </view> -->
+</scroll-view>

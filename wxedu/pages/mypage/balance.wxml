@@ -1,0 +1,5 @@
+<view>
+<image src="./balance.png" style='height:160rpx;width:160rpx;padding-left:300rpx;padding-top:300rpx'></image>
+<text style='font-size:50rpx;padding-left:310rpx'>¥{{money}}.00</text>
+<button class="quit" style="background-color: #4ea3e7;opacity: {{opacity}};" bindtap="enterprise_pay" disabled='{{disable}}'>提现</button>
+</view>

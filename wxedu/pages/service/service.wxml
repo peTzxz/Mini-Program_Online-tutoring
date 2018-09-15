@@ -1,0 +1,139 @@
+<view class="container">
+  <view class="loc">
+    <image style="width:50rpx;height:50rpx" class="locpic" src="./loc.png"></image>
+    <text style="padding:10rpx;margin-top:10rpx;font-weight:700;">{{city}},{{district}}</text>
+    <navigator url="../../switchcity/switchcity">
+      <text style="margin-left:10rpx;margin-top:20rpx;font-size:25rpx;">切换城市</text>
+      <image style="margin-left:10rpx;margin-top:25rpx;width:25rpx;height:25rpx" src="./down.png"></image>
+
+
+    </navigator>
+    <text style="margin-left:180rpx;margin-top:20rpx;font-size:25rpx;" bindtap="change" wx:if="{{state==0}}">教员库</text>
+    <text style="margin-left:180rpx;margin-top:20rpx;font-size:25rpx;" bindtap="change" wx:else>学员库</text>
+    <image style="margin-left:10rpx;margin-top:10rpx;width:25rpx;height:25rpx" src="./down.png " bindtap="change"></image>
+  </view>
+  <view class="searchblue">
+    <view class="search-left flex-item">
+      <image style="width:45rpx;height:45rpx" class="searchpic" src="../../images/search.png"></image>
+      <input placeholder="{{placeholder}}" bindinput="inputSearch" bindfocus="inputFocus" placeholder-class="search-placeholder" />
+    </view>
+    <view class="search-right flex-item">
+      <image style="width:45rpx;height:45rpx" class="lighting" src="../../images/go.png" bindtap="submitSearch"></image>
+    </view>
+  </view>
+  <view class="filter-flex">
+    <view class="filter-tab">
+      <text bindtap="setFilterPanel" data-filterindex="2" class="{{showfilterindex==2?'active':''}}">科目分类</text>
+      <text bindtap="setFilterPanel" data-filterindex="1" class="{{showfilterindex==1?'active':''}}">排序</text>
+      <text bindtap="setFilterPanel" data-filterindex="0" class="{{showfilterindex==0?'active':''}}">条件筛选</text>
+    </view>
+
+    <view class="filter-content" wx:if="{{showfilter}}">
+
+      <view class="filter-panel" wx:if="{{showfilterindex==0}}">
+        <view class="filter-panel-left">
+          <view wx:if="{{state==0}}" wx:for="{{filter1}}" bindtap="filterIndex" data-findex="{{index}}" class="{{findex==index?'active':''}}">{{item}}</view>
+          <view wx:if="{{state==1}}" wx:for="{{filter2}}" bindtap="filterIndex" data-findex="{{index}}" class="{{findex==index?'active':''}}">{{item}}</view>
+        </view>
+        <view class="filter-panel-right">
+          <view wx:if="{{state==0}}" wx:for="{{filter1_detail[findex]}}" bindtap="filter0" data-fsindex="{{index}}" class="{{fsindex==index?'active':''}}">{{item}}</view>
+          <view wx:if="{{state==1}}" wx:for="{{filter2_detail[findex]}}" bindtap="filter1" data-fsindex="{{index}}" class="{{fsindex==index?'active':''}}">{{item}}</view>
+        </view>
+      </view>
+      <view class="filter-panel" wx:if="{{showfilterindex==1}}">
+        <view class="filter-panel-left">
+          <view wx:for="{{sort}}" bindtap="sort" data-sindex="{{index}}" class="{{sindex==index?'active':''}}">{{item}}</view>
+        </view>
+
+      </view>
+      <view class="filter-panel" wx:if="{{showfilterindex==2}}">
+        <view class="filter-panel-left">
+          <view wx:for="{{cate}}" wx:key="{{item.cid}}" bindtap="setCityIndex" data-cid="{{item.cid}}" data-cindex="{{index}}" class="{{cindex==index?'active':''}}">{{item.cname}}</view>
+        </view>
+        <view class="filter-panel-right">
+          <view wx:for="{{cate[cindex].csname}}" wx:key="{{item.csid}}" bindtap="setSubcityIndex" data-csindex="{{index}}" data-csid="{{item.csid}}" data-csname="{{item.csname}}" data-a="1" class="{{csindex==index?'active':''}}">{{item.csname}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="filter-shadow" wx:if="{{showfilter}}" bindtap="hideFilter"></view>
+  </view>
+  <scroll-view class="container-body" scroll-y="true" scroll-top="{{scrolltop}}" bindscroll="scrollHandle" bindscrolltolower="scrollLoading">
+    <view wx:if="{{showTip}}" class='nodata'>
+      <image src='../../images/cry.png' style='width:200rpx;height:200rpx'></image>
+      <text>暂时没有数据</text>
+    </view>
+    <view class="service-list">
+
+      <navigator class="service-item" wx:for="{{newlist}}" url="../../detail/detail?id={{item.id}}&&phone={{item.tphone}}{{item.sphone}}&&subject={{item.subject}}">
+        <view class="service-text">
+          <view wx:if="{{state==0}}">
+            <view class="service-tite">
+              <text class="subject-text">{{item.subject}}</text>
+              <text class="price-text">￥{{item.price}}/小时</text>
+            </view>
+            <view class="classname">
+              <text class="detail-text">{{item.city}}</text>
+              <text class="detail-text">|</text>
+              <text class="detail-text" wx:if="{{item.gender==0}}">男</text>
+              <text class="detail-text" wx:else>女</text>
+              <text class="detail-text">|</text>
+              <text class="detail-text">{{item.grade}}</text>
+              <text class="detail-text">|</text>
+              <text class="detail-text">lv.{{item.lvl}}</text>
+              <text class="date-text">{{item.generate[5]}}{{item.generate[6]}}月{{item.generate[8]}}{{item.generate[9]}}日</text>
+            </view>
+            <view class="service-tags">
+              <text>{{item.time}}可上课</text>
+              <view>
+                <text>{{item.education}}</text>
+                <text>{{item.major}}</text>
+              </view>
+            </view>
+            <view class="name">
+              <image class="userinfo-avatar" src="{{item.headImg}}"></image>
+              <view class="phone">
+                <text class="name-text">{{item.name}}</text>
+                <text class="phone-text">手机 | {{item.tphone}}</text>
+              </view>
+            </view>
+          </view>
+          <view wx:else>
+            <view class="service-tite">
+              <text class="subject-text">{{item.subject}}</text>
+              <text class="price-text">￥{{item.price}}/小时</text>
+            </view>
+            <view class="classname">
+              <text class="detail-text">{{item.city}}</text>
+              <text class="detail-text">|</text>
+              <text class="detail-text" wx:if="{{item.gender==0}}">男</text>
+              <text class="detail-text" wx:else>女</text>
+              <text class="detail-text">|</text>
+              <text class="detail-text">{{item.grade}}</text>
+              <text class="detail-text">|</text>
+              <text class="detail-text">lv.{{item.lvl}}</text>
+              <text class="date-text">{{item.generate[5]}}{{item.generate[6]}}月{{item.generate[8]}}{{item.generate[9]}}日</text>
+            </view>
+            <view class="service-tags">
+              <text>{{item.time}}可上课</text>
+              <view>
+                <text>{{item.address}}</text>
+              </view>
+            </view>
+            <view class="name">
+              <image class="userinfo-avatar" src="{{item.headImg}}"></image>
+              <view class="phone">
+                <text class="name-text">{{item.name}}</text>
+                <text class="phone-text">手机 | {{item.sphone}}</text>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </navigator>
+
+    </view>
+    <view class="gototop {{scrolltop>200?'active':''}}" bindtap="goToTop">
+      <image src="../../images/up.png" class="gototopimg"></image>
+    </view>
+  </scroll-view>
+</view>

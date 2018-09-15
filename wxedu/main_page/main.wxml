@@ -1,0 +1,423 @@
+<import src="../components/prompt/prompt.wxml" />
+<import src="../components/dialog/dialog.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}" />
+<view wx:if="{{state==1}}">
+  <view class="page">
+    <view class="page__bd">
+      <view class="weui-tab">
+        <view class="weui-navbar">
+          <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+            </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <view class="weui-tab__content" hidden="{{ res.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg1 }}" />
+            </view>
+            <view wx:for="{{res}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">教师姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.tphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}/小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" data-id="{{item.id}}" data-receive="{{item.tphone}}" hover-class="weui-form-preview__btn_active" bindtap="accept">接受</navigator>
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" data-id="{{item.id}}" data-receive="{{item.tphone}}" hover-class="weui-form-preview__btn_active" bindtap="refuse">拒绝</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+            <view class="weui-tab__content" hidden="{{ getordering.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg1 }}" />
+            </view>
+            <view wx:for="{{getordering}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">教师姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.tphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}/小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+                  <navigator bindtap="cancel" data-id="{{item.id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-receive="{{item.tphone}}">取消预约</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+            <view class="weui-tab__content" hidden="{{ getordered.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg2 }}" />
+            </view>
+            <view wx:for="{{getordered}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">教师姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.tphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}/小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+
+                  <navigator bindtap="pay" data-id="{{item.id}}" data-index="{{index}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=0}}" data-receive="{{item.tphone}}">付款</navigator>
+                  <navigator bindtap="finish" data-id="{{item.id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=1}}" data-receive="{{item.tphone}}" data-price="{{item.times*item.price}}">确认结课</navigator>
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=2}}">退课中</navigator>
+                  <navigator bindtap="drop" data-id="{{item.id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=1}}" data-receive="{{item.tphone}}">退课</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+            <view class="weui-tab__content" hidden="{{ getorderfinished.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg3 }}" />
+            </view>
+            <view wx:for="{{getorderfinished}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">教师姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.tphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}/小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+
+                  <navigator url="../comment_page/comment?id={{item.id}}&&receive={{item.tphone}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" hidden="{{item.comment!='none'}}">评价</navigator>
+                  <navigator url="../check_comment/check?id={{item.id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" hidden="{{item.comment=='none'}}">查看评价</navigator>
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=3}}">退课成功</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if="{{state==0}}">
+  <view class="page">
+    <view class="page__bd">
+      <view class="weui-tab">
+        <view class="weui-navbar">
+          <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+            <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+              <view class="weui-navbar__title">{{item}}</view>
+            </view>
+          </block>
+          <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+            <view class="weui-tab__content" hidden="{{ res.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg1 }}" />
+            </view>
+            <view wx:for="{{res}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学生姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">性别</view>
+                    <view class="weui-form-preview__value">{{item.gender==0?'男':'女'}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.sphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">住址</view>
+                    <view class="weui-form-preview__value">{{item.address}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}/小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" data-id="{{item.id}}" data-receive="{{item.sphone}}" hover-class="weui-form-preview__btn_active" bindtap="accept">接受</navigator>
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" data-id="{{item.id}}" data-receive="{{item.sphone}}" hover-class="weui-form-preview__btn_active" bindtap="refuse">拒绝</navigator>
+
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+            <view class="weui-tab__content" hidden="{{ getordering.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg1 }}" />
+            </view>
+            <view wx:for="{{getordering}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学生姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.sphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">住址</view>
+                    <view class="weui-form-preview__value">{{item.address}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}/小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+
+                  <navigator bindtap="cancel" data-id="{{item.id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" data-receive="{{item.sphone}}">取消预约</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+            <view class="weui-tab__content" hidden="{{ getordered.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg2 }}" />
+            </view>
+            <view wx:for="{{getordered}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学生姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">性别</view>
+                    <view class="weui-form-preview__value">{{item.gender==0?'男':'女'}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.sphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">住址</view>
+                    <view class="weui-form-preview__value">{{item.address}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}/元小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=0}}">未付款</navigator>
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=1}}">已付款</navigator>
+                  <navigator url="/cancel_order/cancel_detail?id={{item.id}}&&receive={{item.sphone_id}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=2}}">查看退课详情</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+            <view class="weui-tab__content" hidden="{{ getorderfinished.length!=0 }}">
+              <template is="prompt" data="{{ ...$wux.prompt.msg3 }}" />
+            </view>
+            <view wx:for="{{getorderfinished}}">
+              <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                  <view class="weui-form-preview__label">付款金额</view>
+                  <view class="weui-form-preview__value_in-hd">￥{{item.times*item.price}}.00</view>
+                </view>
+                <view class="weui-form-preview__bd">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">学生姓名</view>
+                    <view class="weui-form-preview__value">{{item.name}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">性别</view>
+                    <view class="weui-form-preview__value">{{item.gender==0?'男':'女'}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">联系方式</view>
+                    <view class="weui-form-preview__value">{{item.sphone}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">住址</view>
+                    <view class="weui-form-preview__value">{{item.address}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">科目</view>
+                    <view class="weui-form-preview__value">{{item.subject}}</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">价格</view>
+                    <view class="weui-form-preview__value">{{item.price}}元/小时</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">总课时</view>
+                    <view class="weui-form-preview__value">{{item.times}}/次</view>
+                  </view>
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">下单时间</view>
+                    <view class="weui-form-preview__value">{{item.generate}}</view>
+                  </view>
+                </view>
+                <view class="weui-form-preview__ft">
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" hidden="{{item.comment!='none'}}">对方未评价</navigator>
+                  <navigator url="../check_comment/check?id={{item.id}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" hidden="{{item.comment=='none'}}">查看评价</navigator>
+                  <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" hidden="{{item.is_pay!=3}}">退课成功</navigator>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

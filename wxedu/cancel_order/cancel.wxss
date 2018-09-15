@@ -1,0 +1,32 @@
+.page1{
+  height: 130%
+}
+.container4{
+  position: fixed;
+  width:100%;
+  background-color:gainsboro;
+  height:100rpx;
+  bottom:0rpx;
+}
+.total{
+  margin-left: 40rpx;
+  bottom: 10px;
+  position: fixed;
+}
+.confirm{
+  width:300rpx;
+  color: white;
+  height: 100rpx;
+  margin-right:0rpx;
+  background-color:#4ea3e7;
+  border-radius:0px;
+  line-height:3;
+}
+.form{
+  position: absolute;
+  margin-left: 460rpx;
+  bottom:0%;
+  width:100rpx;
+  height: 100rpx;
+  z-index:1;
+}/* cancel.wxss */

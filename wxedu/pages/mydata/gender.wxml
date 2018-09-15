@@ -1,0 +1,16 @@
+<view class="weui-cells__title">选择你的性别</view>
+<view class="weui-cells weui-cells_after-title">
+  <radio-group bindchange="radioChange">
+    <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="{{item.value}}">
+      <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+
+      <view class="weui-cell__bd">{{item.gender}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+        <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+      </view>
+    </label>
+  </radio-group>
+</view>
+<view style="padding:40rpx">
+  <button style="background-color: #4ea3e7;opacity: {{opacity}};" type="primary" class="btn" bindtap="submit" disabled='{{disable}}'>保存</button>
+</view>

@@ -1,0 +1,97 @@
+<view wx:if="{{state==1}}">
+  <view class="container1">
+    <view class="weui-cells__title">教师基本资料</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">教师姓名</view>
+        <view class="weui-cell__ft">{{detail[0].name}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">教师学历</view>
+        <view class="weui-cell__ft">{{detail[0].grade}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">所在学校</view>
+        <view class="weui-cell__ft">{{detail[0].education}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">专业</view>
+        <view class="weui-cell__ft">{{detail[0].major}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别</view>
+        <view wx:if="detail[0].gender==0">
+          <view class="weui-cell__ft">男</view>
+        </view>
+        <view wx:else>
+          <view class="weui-cell__ft">女</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">联系方式</view>
+        <view class="weui-cell__ft">{{detail[0].tphone}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">科目</view>
+        <view class="weui-cell__ft">{{detail[0].subject}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">授课时间</view>
+        <view class="weui-cell__ft">{{detail[0].time}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">简介</view>
+        <view class="weui-cell__ft">{{detail[0].introduction}}</view>
+      </view>
+    </view>
+    
+
+  </view>
+</view>
+<view wx:else>
+  <view class="container1">
+    <view class="weui-cells__title">学生基本资料</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">学生姓名</view>
+        <view class="weui-cell__ft">{{detail[0].name}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">学生年级</view>
+        <view class="weui-cell__ft">{{detail[0].grade}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">所在住址</view>
+        <view class="weui-cell__ft">{{detail[0].address}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别</view>
+        <view wx:if="detail[0].gender==0">
+          <view class="weui-cell__ft">男</view>
+        </view>
+        <view wx:else>
+          <view class="weui-cell__ft">女</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">联系方式</view>
+        <view class="weui-cell__ft">{{detail[0].sphone}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">科目</view>
+        <view class="weui-cell__ft">{{detail[0].subject}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">需授课时间</view>
+        <view class="weui-cell__ft">{{detail[0].time}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">简介</view>
+        <view class="weui-cell__ft">{{detail[0].introduction}}</view>
+      </view>
+    </view>
+    
+
+  </view>
+
+</view>

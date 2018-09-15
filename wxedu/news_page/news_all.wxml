@@ -1,0 +1,23 @@
+<!--news_all.wxml-->
+
+<view class="weui-panel__bd">
+                <navigator url="../news_page/news_page1" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="./jiajiao4.jpg" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title"> 如何成为一名合格的家教</view>
+                        <view class="weui-media-box__desc">大家都知道，做一名家教老师不容易，天天往返于校区和家教点，腿都跑断了，结果家长还不满意，</view>
+                    </view>
+                </navigator>
+                <navigator url="../news_page/news_page2" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="./jiajiao5.png" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">达尔文家教小故事</view>
+                        <view class="weui-media-box__desc">他带的一个班55人，37人考进清华、北大，10人进入剑桥大学、耶鲁大学、牛津大学等世界名校并获全额奖学金，</view>
+                    </view>
+                </navigator>
+               
+        </view>	

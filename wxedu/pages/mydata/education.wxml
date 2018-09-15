@@ -1,0 +1,8 @@
+<view style="height:100%;padding:48rpx; background-color:white;">
+  <view class="formc-cnt">
+    <input class="weui-input"  placeholder="请输入所在学校" bindinput="geteducation" />
+  </view>
+  <view style="padding:40rpx">
+    <button style="background-color: #4ea3e7;opacity: {{opacity}};" type="primary" class="btn" bindtap="submit" disabled='{{disable}}'>保存</button>
+  </view>
+</view>

@@ -1,0 +1,82 @@
+<scroll-view style="height:{{height}}px;">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="subject">
+      <image class="userinfo-avatar" src="{{logo}}"></image>
+      <view class="phone">
+        <text class="name-text">{{name}}</text>
+        <view class="classname">
+          <image src="./phone.png" style="margin-right: 5px;vertical-align: middle;width:18px; height: 18px;"></image>
+          <text class="phone-text">| {{phone}}</text>
+        </view>
+
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view style="margin-top:10rpx;margin-bottom:5rpx;">
+        <image src="./loc.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        <text class="detail_text">{{city}}</text>
+        <image src="./sex.png" style="margin-right: 5px;margin-left: 20px;vertical-align: middle;width:20px; height: 20px;"></image>
+        <text class="detail_text" wx:if="{{gender==0}}">男</text>
+        <text class="detail_text" wx:else>女</text>
+        <image src="./education.png" style="margin-right: 5px;margin-left: 20px;vertical-align: middle;width:20px; height: 20px;"></image>
+        <text class="detail_text">{{grade}}</text>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="./form.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+      <view class="weui-cell__bd">详情</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">所在学校</view>
+      <view class="weui-cell__ft">{{education}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">专业</view>
+      <view class="weui-cell__ft">{{major}}</view>
+    </view>
+  </view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="./account.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+      <view class="weui-cell__bd">个人简介</view>
+    </view>
+  </view>
+  <view class="introduction">{{introduction}}</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__hd">
+        <image src="./release.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+      </view>
+      <view class="weui-cell__bd">他的发布</view>
+    </view>
+    <view class='classname' style="padding:40rpx;"wx:if="{{release.length==0}}">
+        <text>ta暂时没有发布</text>
+    </view>
+    <view class="classname" wx:for="{{release}}">
+      <navigator url="../detail/detail?id={{item.id}}&&phone={{item.tphone}}&&subject={{item.subject}}">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <text class="subject_text">{{item.subject}}</text>
+          </view>
+          <view class="weui-cell__ft">
+            <text class="price_text">￥{{item.price}}/小时</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view class="weui-footer">
+    <view class="">Copyright © 2008-2016 weui.io</view>
+  </view>
+</scroll-view>
+<view class="bar">
+  <button class="connect" bindtap="call">电话联系TA</button>
+</view>

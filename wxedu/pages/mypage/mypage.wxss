@@ -1,0 +1,56 @@
+/**index.wxss**/
+
+.container {
+  height: 400rpx;
+  width: 100%;
+  background: #2a8ce5;
+}
+
+.userinfo {
+  margin-top: 100rpx;
+  display: flex;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin-left: 40rpx;
+  border-radius: 50%;
+  border-color: white;
+  border-style: solid;
+  border-width: 1rpx;
+}
+
+.userinfo-nickname {
+  margin: 30rpx;
+  color: white;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.level {
+  display: flex;
+  background-color: transparent;
+}
+
+.level_pic {
+  margin-left: 70rpx;
+  margin-top: 20rpx;
+}
+.level_num {
+  margin-top: 15rpx;
+}
+.progress_view{
+  display: flex;
+  flex-direction: column;
+}
+.quit {
+  background-color: #4ea3e7;
+  color: white;
+  border-radius: 5rpx;
+  opacity: 0.7;
+  margin: 100rpx;
+  /* font-size: 32rpx; */
+}

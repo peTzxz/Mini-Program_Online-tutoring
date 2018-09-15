@@ -1,0 +1,32 @@
+<import src="../components/dialog/dialog.wxml" />
+
+<template is="dialog" data="{{ ...$wux.dialog }}" />
+
+<view class="page">
+  <text class="welcome">进入智能家教</text>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="./head.jpg" background-size="cover"></image>
+  </view>
+  <view class="form-common">
+      <view class="formc-cnt">
+        <image style="height:80rpx;width:80rpx; margin-right:40rpx" src="./account.png"></image>
+        <input class="weui-input" type="number" placeholder="请输入手机号" bindinput="getphone" />
+      </view>
+      <view class="formc-cnt">
+        <input type="number" class="weui-input" placeholder="请输入收到的验证码" bindinput="getcode" />
+        <view bindtap="vcode">{{ c2 || '获取验证码' }}</view>
+      </view>
+      <view class="formc-cnt">
+        <text style="color:#8a8a8a">选择你的身份</text>
+        <view bindtap="opengender">
+          <view style="margin-left:400rpx" class="weui-cell__ft">{{state=='1'? '学生' : '教员'}}</view>
+        </view>
+      </view>
+      <view>
+        <button style="background-color: red;opacity: {{opacity}};" type="primary" disabled='{{disable}}' bindtap="login">登录</button>
+      </view>
+  </view>
+  <navigator url="../login/login">
+    <text class="code">密码登录</text>
+  </navigator>
+</view>

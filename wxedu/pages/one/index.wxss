@@ -1,0 +1,119 @@
+@import "/wxSearch/wxSearch.wxss";
+
+page, .page {
+  /* height: 104%; */
+  font-family: 'PingFang SC',
+                 'Helvetica Neue',
+                 Helvetica,
+                 'Droid Sans Fallback',
+                 'Microsoft Yahei',
+                 sans-serif;
+}
+
+.page-bottom {
+  height: 100%;
+  width: 750rpx;
+  position: fixed;
+  background-color: #0068c4;
+  z-index: 0;
+}
+
+.wc {
+  color: white;
+  display: flex;
+  padding: 30rpx 30rpx 30rpx 30rpx;
+}
+
+.page-content {
+  padding-top: 80rpx;
+}
+
+.page-top {
+  height: 150%;
+  /* position: fixed; */
+  display: flex;
+  flex-direction: column;
+  width: 750rpx;
+  background-color: #efeff4;
+  z-index: 0;
+  transition: All 0.4s ease;
+  -webkit-transition: All 0.4s ease;
+}
+
+.page-top_image {
+  position: absolute;
+  width: 68rpx;
+  height: 38rpx;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.c-state1 {
+  transform: rotate(0deg) scale(1) translate(75%, 0%);
+  -webkit-transform: rotate(0deg) scale(1) translate(75%, 0%);
+}
+
+.c-state2 {
+  transform: rotate(0deg) scale(0.8) translate(75%, 0%);
+  -webkit-transform: rotate(0deg) scale(0.8) translate(75%, 0%);
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skip {
+  position: absolute;
+  margin-left: 650rpx;
+  margin-right: 30rpx;
+  top: 22rpx;
+}
+
+.hot_subject {
+  padding: 20rpx;
+  height: 320rpx;
+  background-color: white;
+  margin-top: 25rpx;
+}
+
+.title {
+  display: flex;
+  height: 35rpx;
+  align-items: center;
+}
+
+.subjectIcons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.subjectIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

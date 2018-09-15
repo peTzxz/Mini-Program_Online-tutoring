@@ -1,0 +1,104 @@
+<!--news_all.wxml-->
+       <text>请按照你的实际情况，评价以下描述的符合程度。回答没
+       有对错、好坏之分，也无须过多考虑，凭第一印象作答即可。</text>
+<scroll-view>
+        <view class=:weui-media-box__title">1、我会将自己制定的计划执行到底</view>
+        
+        <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+ <view class=:weui-media-box__title">2、我总是想方设法解决问题。</view>
+<!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+ <view class=:weui-media-box__title">3、对我来说，保持对事情的兴趣很重要。</view>
+ <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+<view class=:weui-media-box__title">4、我主要是依靠自己解决问题。</view>
+  <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+<view class=:weui-media-box__title">5、如果必须，我可以独立完成事情。</view>
+  <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+<view class=:weui-media-box__title">6、我能客观地看待自己</view>
+  <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+
+<view class=:weui-media-box__title">7、我认为我能同时应付很多事情。</view>
+  <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+
+<view class=:weui-media-box__title">8、我意志坚强。</view>
+  <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+<view class=:weui-media-box__title">9、我很少注意事物的细节。</view>
+  <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+<view class=:weui-media-box__title">10、因为以前经历过困境，所以我能够勇于面对困难。</view>
+  <!--checkbox-group就是一个checkbox组 有个监听事件bindchange，监听数据选中和取消-->
+<checkbox-group bindchange="listenCheckboxChange">
+<!--这里用label显示内容，for循环写法 wx:for-items 默认item为每一项-->
+    <label style="display: flex;"  wx:for-items="{{items}}">
+    <!--value值和默认选中状态都是通过数据绑定在js中的-->
+        <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+    </label>
+</checkbox-group>
+<button  type="default" style="background-color:#EAEAEA;" bindtap="toastShow">开始检测</button>
+<toast hidden="{{status}}" duration="3000" bindchange="toastHide">
+        正在分析...
+</toast>
+</scroll-view>
+
+

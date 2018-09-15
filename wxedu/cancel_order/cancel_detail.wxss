@@ -1,0 +1,30 @@
+.page1{
+  height: 130%
+}
+.container4{
+  position: fixed;
+  width:100%;
+  background-color:gainsboro;
+  height:100rpx;
+  bottom:0rpx;
+  display: flex;
+  flex-direction: row;
+}
+.accept{
+  color: white;
+  width:250rpx;
+  height: 100rpx;
+  margin-left:245rpx;
+  background-color: #4ea3e7;
+  border-radius:0px;
+  line-height:3;
+}
+.refuse{
+  width:250rpx;
+  color: white;
+  height: 100rpx;
+  margin-right:0rpx;
+  background-color: #4ea3e7;
+  border-radius:0px;
+  line-height:3;
+}

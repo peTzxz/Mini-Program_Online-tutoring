@@ -1,0 +1,4 @@
+.myStyle{
+    color:cyan;
+    text-align: center
+}

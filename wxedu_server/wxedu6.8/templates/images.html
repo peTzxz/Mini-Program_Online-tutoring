@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Images</title>
+</head>
+<body>
+{% load staticfiles %}
+<p><img src="{% static imagepath %}"></p>
+{% load staticfiles %}
+{{imagepath}}
+{% static imagepath %}
+<link rel="stylesheet" href="{% static user_stylesheet %}" type="text/css" media="screen"/>
+
+</body>
+</html>

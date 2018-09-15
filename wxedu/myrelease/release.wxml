@@ -1,0 +1,74 @@
+<import src="../components/dialog/dialog.wxml" />
+<import src="../components/prompt/prompt.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}" />
+<view wx:if="{{state==0}}">
+  <view class="top">
+    <button class="add" bindtap="add">
+      新增发布
+    </button>
+    <text class="plus">+</text>
+
+  </view>
+  <view hidden="{{newlist.length!=0 }}">
+    <template is="prompt" data="{{ ...$wux.prompt.msg1 }}" />
+  </view>
+  <view class="service-list">
+    <view class="service-item" wx:for="{{newlist}}">
+      <view class="service-text">
+        <view class="service-tite">姓名：{{item.name}}
+          <text style="margin-left:40rpx">联系方式：{{item.tphone}}</text>
+        </view>
+        <view class="service-tags">
+          <view>
+            <text wx:if="{{item.gender==0}}">男</text>
+            <text wx:else>女</text>
+            <text>{{item.education }}</text>
+          </view>
+          <text>{{item.grade}}</text>
+          <text>{{item.major}}</text>
+          <text>{{item.subject}}</text>
+          <image class="delete" style="width:50rpx; height:50rpx;" data-id="{{item.id}}" bindtap="confirm" src="./delete.png"></image>
+
+        </view>
+        <text class="service-city">时间：{{item.time}}</text>
+        <text class="price">{{item.price}}元/小时</text>
+        <view>简介：{{item.introduction}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="top">
+    <button class="add" bindtap="add">
+      新增发布
+    </button>
+    <text class="plus">+</text>
+
+  </view>
+  <view hidden="{{newlist.length!=0 }}">
+    <template is="prompt" data="{{ ...$wux.prompt.msg1 }}" />
+  </view>
+  <view class="service-list">
+    <view class="service-item" wx:for="{{newlist}}">
+      <view class="service-text">
+        <view class="service-tite">姓名：{{item.name}}
+          <text>联系方式：{{item.sphone}}</text>
+        </view>
+        <view class="service-tags">
+          <view>
+            <text wx:if="{{item.gender==0}}">男</text>
+            <text wx:else>女</text>
+            <text>{{item.address }}</text>
+          </view>
+          <text>{{item.grade}}</text>
+          <text>{{item.subject}}</text>
+          <image class="delete" style="width:50rpx; height:50rpx;" data-id="{{item.id}}" bindtap="confirm" src="./delete.png"></image>
+
+        </view>
+        <text class="service-city">时间：{{item.time}}</text>
+        <text class="price">{{item.price}}元/小时</text>
+        <view>简介：{{item.introduction}}</view>
+      </view>
+    </view>
+  </view>
+</view>

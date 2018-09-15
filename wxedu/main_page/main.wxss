@@ -1,0 +1,20 @@
+.weui-form-preview{
+    margin-bottom: 10px;
+}
+.page, 
+.page__bd, 
+.weui-tab__content {
+	height: 100%;
+	padding-bottom: 0;
+}
+
+
+.prompt-container {
+  display:flex;
+  height:100%;
+  margin-top:350rpx;
+  align-items:center;
+  justify-content:center;
+  color:#939393;
+  background-color:transparent;
+}

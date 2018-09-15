@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText": "科目",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+    ,
+    "tabBar": {
+    "list": [{
+      "pagePath": "pages/one/index",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/service/service",
+      "text": "科目"
+    }]
+  }
+}

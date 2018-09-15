@@ -1,0 +1,13 @@
+.container1{
+  margin-top: 10%;
+  height: 100%;
+  width:100%
+}
+.quit {
+  background-color: #4ea3e7;
+  color: white;
+  border-radius: 5rpx;
+  opacity: 0.7;
+  margin: 100rpx;
+  /* font-size: 32rpx; */
+}

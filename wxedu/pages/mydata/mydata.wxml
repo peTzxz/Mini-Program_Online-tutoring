@@ -1,0 +1,79 @@
+<scroll-view class="page">
+  <view class="weui-cells weui-cells_after-title">
+
+    <navigator url="./name" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+
+      <view class="weui-cell__bd">姓名</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].name}}</view>
+    </navigator>
+
+    <view  class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='changePhone'>
+      <view class="weui-cell__bd">手机号</view>
+      <view class="weui-cell__ft" wx:if='{{state==0}}'>{{userInfo[0].tphone}}</view>
+      <view class="weui-cell__ft" wx:else>{{userInfo[0].sphone}}</view>
+    </view>
+
+    <navigator url="./gender" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">性别</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].gender=='1'? '女' : '男'}}</view>
+    </navigator>
+
+    <view class="weui-cell" bindtap="chooseImageTap">
+      <view class="weui-cell__bd">头像</view>
+      <image src="{{logo}}" style="height:100rpx;width:100rpx;"></image>
+    </view>
+
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+
+    <navigator url="./city" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">所在地区</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].city}}</view>
+    </navigator>
+
+
+    <navigator url="./address" class="weui-cell weui-cell_access" hover-class="weui-cell_active" hidden='{{state==0}}'>
+      <view class="weui-cell__bd">住址</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].address}}</view>
+    </navigator>
+
+
+    <navigator url="./sgrade" class="weui-cell weui-cell_access" hover-class="weui-cell_active" hidden='{{state==0}}'>
+      <view class="weui-cell__bd">年级</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].grade}}</view>
+    </navigator>
+
+    <navigator url="./education" class="weui-cell weui-cell_access" hover-class="weui-cell_active" hidden='{{state==1}}'>
+      <view class="weui-cell__bd">学校</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].education}}</view>
+    </navigator>
+
+    <navigator url="./major" class="weui-cell weui-cell_access" hover-class="weui-cell_active" hidden='{{state==1}}'>
+      <view class="weui-cell__bd">专业</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].major}}</view>
+    </navigator>
+
+    <navigator url="./tgrade" class="weui-cell weui-cell_access" hover-class="weui-cell_active" hidden='{{state==1}}'>
+      <view class="weui-cell__bd">学历</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].grade}}</view>
+    </navigator>
+
+    <view class="weui-cell" bindtap="prompt_character">
+      <view class="weui-cell__bd">性格分析</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{userInfo[0].character}}</view>
+    </view>
+
+  </view>
+
+  <view class="weui-cells__title">简介</view>
+  <view class="introduction">
+  <view class='edit'>
+    <navigator url="./introduction" style='display:flex;width:100rpx;'>
+      <image src="../../images/pen.png" style="height:40rpx;width:40rpx;"></image>
+      <text style='color:#87a7d6;font-size:28rpx'>编辑</text>
+    </navigator>
+  </view>
+    <view style='padding: 0rpx 30rpx 30rpx 30rpx;'>{{userInfo[0].introduction}}</view>
+  </view>
+</scroll-view>

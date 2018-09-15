@@ -1,0 +1,12 @@
+<import src="../../components/picker-city/picker-city.wxml" />
+
+<template is="picker-city" data="{{ ...$wux.pickerCity.city }}" />
+<view class="weui-cells weui-cells_after-title">
+  <view url="./city.js" class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap='onTapCity'>
+    <view class="weui-cell__bd">选择你所在的地区</view>
+    <view class="weui-cell__ft weui-cell__ft_in-access">{{city}}</view>
+  </view>
+</view>
+<view style="padding:40rpx">
+  <button style="background-color: #4ea3e7;opacity: {{opacity}};" type="primary" class="btn" bindtap="submit" disabled='{{disable}}'>保存</button>
+</view>

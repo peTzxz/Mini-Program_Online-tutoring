@@ -1,0 +1,107 @@
+<import src="../components/toast/toast.wxml"/>
+
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<view wx:if="{{state==1}}">
+  <view class="container1">
+    <view class="jiaoshijibenziliao">
+      <text class="block_title1">教师基本资料</text></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">姓名</view>
+        <view class="weui-cell__ft1">{{detail[0].name}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">学历</view>
+        <view class="weui-cell__ft1">{{detail[0].grade}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">专业</view>
+        <view class="weui-cell__ft1">{{detail[0].major}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">联系方式</view>
+        <view class="weui-cell__ft1">{{detail[0].tphone}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd"></view>
+        <view class="weui-cell__ft weui-cell__ft_in-access" bindtap="getmore" data-id='{{detail[0].id}}'>详细资料</view>
+      </view>
+    </view>
+    <view class="yuyuexiangxixingxi">
+      <text class="block_title2">预约详细信息</text></view>
+    <view class="container2">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="container3">
+          <text class="item1">科目</text>
+          <text class="item2">课时数</text>
+          <text class="item3">价格</text>
+          <text class="item4">{{detail[0].subject}}</text>
+          <text class="item5">次</text>
+          <text class="item6">/小时</text>
+          <text class="item7">可上课时间</text>
+          <input class="input1" type="number" placeholder="请输入总计课时" bindblur="get_times" placeholder-style="font-family: 'Microsoft Yahei';" />
+          <input class="input2" type="number" placeholder="请输入价格" bindblur="get_price" placeholder-style="font-family: 'Microsoft Yahei';" />
+          <input class="input3" placeholder="请输入可上课时间" bindblur="get_time" placeholder-style="font-family: 'Microsoft Yahei';" />
+        </view>
+      </view>
+    </view>
+    <view class="container4">
+      <text class="total">总计:￥{{total}}</text>
+      <button class="confirm" bindtap="submit">确认预约</button>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="container1">
+    <view class="jiaoshijibenziliao">
+      <text class="block_title1">学生基本资料</text></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">姓名</view>
+        <view class="weui-cell__ft1">{{detail[0].name}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">年级</view>
+        <view class="weui-cell__ft1">{{detail[0].grade}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">住址</view>
+        <view class="weui-cell__ft1">{{detail[0].address}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd1">联系方式</view>
+        <view class="weui-cell__ft1">{{detail[0].sphone}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd"></view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"  data-id='{{detail[0].id}}' bindtap="getmore">详细资料</view>
+      </view>
+    </view>
+    <view class="yuyuexiangxixingxi">
+      <text class="block_title2">预约详细信息</text></view>
+    <view class="container2">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">科目</view>
+          <view class="weui-cell__ft">{{detail[0].subject}}</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">课时数</view>
+          <view class="weui-cell__ft">{{detail[0].times}}次</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">价格</view>
+          <view class="weui-cell__ft">{{detail[0].price}}/小时</view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">可上课时间</view>
+          <view class="weui-cell__ft">{{detail[0].time}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="container4">
+      <text class="total">总计:￥{{detail[0].times*detail[0].price}}</text>
+      <button class="confirm" bindtap="teachersubmit">预约</button>
+    </view>
+  </view>
+</view>

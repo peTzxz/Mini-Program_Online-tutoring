@@ -1,0 +1,43 @@
+<!--news_page.wxml-->
+
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">如何成为一名合格的家教</view>
+    <view class="page__desc">来源:智能家教</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-article">
+      <view class="weui-article__section">
+        <!-- <view class="weui-article__title">章标题</view> -->
+        <view class="weui-article__section">
+          <!-- <view class="weui-article__h3">1.1 如何成为一名合格的家教</view> -->
+          <view class="weui-article__p">
+            <image class="weui-article__img" src="./jiajiao4.jpg" mode="aspectFit" style="height: 180px" />
+
+          </view>
+          <view class="weui-article__p">
+            1、要善于推销自己。作为大学生，离走入社会参加工作已经很近了，所以应该懂得如何去展现自己推销自己，当然，这应该建立在诚实的基础之上！最好在初次试讲时就能打动家长和学员，把自己的优势、性格魅力、专业素质全面地展现出来，也许就是你的某一个小特长就能打动家长，做成这份家教！即使试讲不成功这也是一次难得的展现机会，起码知道自己应该在什么地方改进吧！当然我们不必用这种得失观来看待所有的问题就是了！
+          </view>
+          <view class="weui-article__p">
+            2、第一次上门不能迟到，最好也别早到。早到容易让家长被动，如果太早到，可在附近转转；晚到则失信，也会让家长着急。
+          </view>
+
+          <view class="weui-article__p">
+            3、要注意礼节，尤其是穿着细节，着装应该整洁大方，比如女生第一次上课穿超短裙就不合适。平时的言谈要不卑不亢，不要谈及家长的工作收入、家里财产来源等敏感的话题。
+          </view>
+          <view class="weui-article__p">
+            4、对于家长请吃饭、吃水果之类的，应该婉言谢绝。上课时最好自己带一个杯子，水也自带更好。如果你爱吸烟，要强忍着，家长问你应该说不会。
+          </view>
+          <view class="weui-article__p">
+            5、应该善于用自己的性格能力、技能资历、经验教训等启发、感染、引导学员。学员是比较需要鼓励、肯定和赞扬的，如果你性格开朗，言语诙谐，那上课就可能比较有感染力了，学员也比较欢迎这样的教员；如果你在某一方面技能比较强，比如讲一口标准、流利的英语、高考数理化分数很高，那你肯定受欢迎，但是欢迎是一方面，能否讲好又是另一回事，这就要求我们学会启发学会引导学员、设身为其着想、使其综合能力获得本质提高，这样才能把家教持续下去！
+          </view>
+          <view class="weui-article__p">
+            6、总结一下，大学校园里的生活是丰富多彩的，但是校园外面的世界同样是很精彩的！大学生应该学会去适应这个社会、征服甚至主宰这个社会，因此我们应该在各个方面锤炼自己，家教就是一个很好的形式，愿我们能够在家教的舞台上不断成长！
+          </view>
+
+        
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

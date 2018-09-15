@@ -1,0 +1,134 @@
+<view class="page">
+
+  <view class="page-bottom">
+    <view wx:if="{{islogin}}">
+
+      <navigator url="../mypage/mypage" open-type="navigate">
+        <view class="userinfo">
+          <image class="userinfo-avatar" src="{{logo}}" background-size="cover"></image>
+          <text class="userinfo-nickname" style="color:white">{{userInfo.nickName}}</text>
+        </view>
+      </navigator>
+
+      <view class="page-content">
+        <view class="wc">
+          <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./user.png" bindtap="gomydata"></image>
+          <navigator url="../mydata/mydata">
+            <text>基本资料</text>
+          </navigator>
+        </view>
+        <view class="wc">
+          <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./release.png" bindtap="gorelease"></image>
+          <navigator url="../../myrelease/release">
+            <text>我的发布</text>
+          </navigator>
+        </view>
+        <view class="wc">
+          <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./book.png" bindtap="goclass"></image>
+          <navigator url="../../main_page/main">
+            <text>我的课程</text>
+          </navigator>
+        </view>
+        <view class="wc">
+          <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./Message.png" bindtap="gomessage"></image>
+          <navigator url="../../msg/msg">
+            <text>我的消息</text>
+          </navigator>
+          <image style="height:60rpx;width:60rpx; margin-left:20rpx" hidden="{{newmsg.length==0}}" src="./new.png"></image>
+        </view>
+        <view class="wc">
+          <image style="height:50rpx;width:50rpx; margin-right:20rpx" src="./quit.png" bindtap="quit"></image>
+          <navigator bindtap="quit">
+            <text>退出</text>
+          </navigator>
+        </view>
+      </view>
+    </view>
+    <view wx:else>
+      <navigator url="../login/login" open-type="navigate">
+        <view class="userinfo">
+          <image class="userinfo-avatar" src="./icon_person.png" background-size="cover"></image>
+          <text class="userinfo-nickname" style="color:white; font-size:40rpx; font-weight:400;">登录/注册</text>
+        </view>
+      </navigator>
+    </view>
+
+
+  </view>
+  <scroll-view class="page-top" style="{{translate}}">
+    <view class="page-top">
+      <image class="page-top_image" bindtap="tap_ch" src="./btn.png" style="width:50rpx;height:50rpx;"></image>
+      <!-- <import src="/wxSearch/wxSearch.wxml" /> -->
+      <view class="wxSearch-section">
+        <view class="wxSearch-pancel">
+          <input bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="搜索学科" />
+          <!-- <button class="wxSearch-button" bindtap="wxSearchFn" size="mini" plain="true">搜索</button> -->
+        </view>
+        <image class="skip" src="./skip.png" style="width:50rpx;height:50rpx;" bindtap="wxSearchFn"></image>
+      </view>
+      <template is="wxSearch" data="{{wxSearchData}}" />
+      <swiper style="height:400rpx;" indicator-dots="false" indicator-active-color="#3f81c1" indicator-color="white" autoplay="true" interval="5000" duration="1000" hidden="{{hidden}}">
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" style="width:100%;" />
+          </swiper-item>
+        </block>
+      </swiper>
+
+      <view class="hot_subject " style='border-radius:10px;border-style:solid;border-color:#e6e6e6;border-width:1px;'>
+        <view class="title">
+          <image src="./point.png" style="width:30rpx;height:35rpx;"></image>
+          <text style="font-weight:700;font-size: 32rpx; ">性格检测</text>
+        </view>
+            <view class="weui-article__p ">不论是学习还是工作，生活总会时常带给我们各种压力。面对压力，难免会产生紧张和焦虑的情绪，因此我们必须改善自己的心态，根据自己的性格及时调节自己的心理状态。</view>
+     <navigator url="../../news_page/check">
+     <button  type="default" style="background-color:#EAEAEA;">开始检测</button>
+     </navigator>
+      </view>
+
+            <view class="hot_subject" style='height:500rpx;'>
+        <view class="title ">
+          <image src="./point.png " style="width:30rpx;height:35rpx; "></image>
+          <text style="font-weight: 700;font-size: 32rpx; ">最新资讯</text>
+        </view>
+        <view class="weui-panel__bd ">
+          <navigator url="../../news_page/news_page1" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active ">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg ">
+          <image class="weui-media-box__thumb " src="./jiajiao4.jpg" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
+              <view class="weui-media-box__title "> 如何成为一名合格的家教</view>
+              <view class="weui-media-box__desc ">大家都知道，做一名家教老师不容易，天天往返于校区和家教点，腿都跑断了，结果家长还不满</view>
+            </view>
+          </navigator>
+          <navigator url="../../news_page/news_page2" class="weui-media-box weui-media-box_appmsg " hover-class="weui-cell_active ">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg ">
+              <image class="weui-media-box__thumb " src="./jiajiao5.png" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg ">
+              <view class="weui-media-box__title ">达尔文家教小故事</view>
+              <view class="weui-media-box__desc ">过去，没有想过要去做一名老师，觉得老师是一个很累的一个职业，并且天天面对一群不听话的学生，既不能打也不能骂，再说自己的成绩都不怎么好，怎么能</view>
+            </view>
+          </navigator>
+        </view>
+        <navigator url="../../news_page/news_all">
+          <view class="weui-panel__ft ">
+            <view class="weui-cell weui-cell_access weui-cell_link ">
+              <view class="weui-cell__bd ">查看更多</view>
+              <view class="weui-cell__ft weui-cell__ft_in-access "></view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>
+<!-- <import src="/wxSearch/wxSearch.wxml " />
+<view class="wxSearch-section ">
+  <view class="wxSearch-pancel ">
+    <input bindinput="wxSearchInput " bindfocus="wxSerchFocus " value="{{wxSearchData.value}} " bindblur="wxSearchBlur " class="wxSearch-input " placeholder="搜索 " />
+    <button class="wxSearch-button " bindtap="wxSearchFn " size="mini " plain="true ">搜索</button>
+  </view>
+</view>
+<template is="wxSearch " data="{{wxSearchData}} " /> -->

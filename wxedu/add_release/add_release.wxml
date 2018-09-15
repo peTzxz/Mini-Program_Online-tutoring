@@ -1,0 +1,135 @@
+<import src="../components/picker/picker.wxml" />
+<import src="../components/xnumber/xnumber.wxml" />
+<import src="../components/picker-city/picker-city.wxml" />
+
+<template is="picker" data="{{ ...$wux.picker.default }}" />
+<template is="picker" data="{{ ...$wux.picker.multi }}" />
+
+<template is="picker-city" data="{{ ...$wux.pickerCity.city }}" />
+
+<view wx:if="{{state==0}}">
+  <view class="container1">
+    <view class="weui-cells__title">教师基本资料</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">教师姓名</view>
+        <view class="weui-cell__ft">{{detail[0].name}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">教师学历</view>
+        <view class="weui-cell__ft">{{detail[0].grade}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">所在学校</view>
+        <view class="weui-cell__ft">{{detail[0].education}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">专业</view>
+        <view class="weui-cell__ft">{{detail[0].major}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别</view>
+        <view wx:if="detail[0].gender==0">
+          <view class="weui-cell__ft">男</view>
+        </view>
+        <view wx:else>
+          <view class="weui-cell__ft">女</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">联系方式</view>
+        <view class="weui-cell__ft">{{detail[0].tphone}}</view>
+      </view>
+
+    </view>
+    <view class="weui-cells__title">发布内容</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">价格</view>
+        <template is="xnumber" data="{{ ...$wux.xnumber.num4 }}" />
+        <view class="weui-cell__ft"> 元/小时</view>
+      </view>
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="onTapDefault">
+        <view class="weui-cell__bd">科目</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{subject}}</view>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">可授课时间</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="time" class="weui-input" placeholder="请输入可授课时间" bindinput="gettime" placevalue="{{time}}" placeholder-style="font-family: 'Microsoft Yahei';font-size:30rpx;" />
+        </view>
+      </view>
+    </view>
+    <view style='padding:40rpx'>
+      <button style="background-color: #4ea3e7;opacity: {{opacity}};" type="primary" class="btn" bindtap="submit" disabled='{{disable}}'>发布</button>
+    </view>
+
+  </view>
+</view>
+<view wx:if="{{state==1}}">
+  <view class="container1">
+    <view class="weui-cells__title">学生基本资料</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">学生姓名</view>
+        <view class="weui-cell__ft">{{detail[0].name}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">学生年级</view>
+        <view class="weui-cell__ft">{{detail[0].grade}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">所在住址</view>
+        <view class="weui-cell__ft">{{detail[0].address}}</view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">性别</view>
+        <view wx:if="detail[0].gender==0">
+          <view class="weui-cell__ft">男</view>
+        </view>
+        <view wx:else>
+          <view class="weui-cell__ft">女</view>
+        </view>
+      </view>
+      <view class="weui-cell">
+        <view class="weui-cell__bd">联系方式</view>
+        <view class="weui-cell__ft">{{detail[0].sphone}}</view>
+      </view>
+
+    </view>
+    <view class="weui-cells__title">发布内容</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">价格</view>
+        <template is="xnumber" data="{{ ...$wux.xnumber.num4 }}" />
+        <view class="weui-cell__ft"> 元/小时</view>
+      </view>
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="onTapDefault">
+        <view class="weui-cell__bd">科目</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{subject}}</view>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">需授课时间</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="time" class="weui-input" placeholder="请输入需授课时间" bindinput="gettime" placevalue="{{time}}" placeholder-style="font-family: 'Microsoft Yahei';font-size:30rpx;" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input weui-cell_vcode">
+        <view class="weui-cell__hd">
+          <view class="weui-label">需授课次数</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input name="time" class="weui-input" placeholder="请输入需授课次数" bindinput="gettimes" placevalue="{{time}}" placeholder-style="font-family: 'Microsoft Yahei';font-size:30rpx;" />
+        </view>
+      </view>
+    </view>
+    <view style='padding:40rpx'>
+      <button style="background-color: #4ea3e7;opacity: {{opacity}};" type="primary" class="btn" bindtap="submit" disabled='{{disable}}'>发布</button>
+    </view>
+
+  </view>
+</view>

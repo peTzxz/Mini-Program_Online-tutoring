@@ -1,0 +1,40 @@
+<!--mynews.wxml-->
+<scroll-view>
+  <view class="weui-navbar">
+    <block wx:for-items="{{tabs}}" wx:key="{{index}}">
+      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+        <view class="weui-navbar__title">{{item}}</view>
+      </view>
+    </block>
+    <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+  <view class="news" hidden="{{activeIndex!=0}}">
+    <text class="unread">{{newmsg.length}}条未读消息</text>
+    <view wx:for="{{newmsg}}" wx:if="{{item.state==0}}" class="weui-cell" bindtap="news_detail" data-id="{{item.id}}" data-generate="{{item.generate}}" data-name="{{item.name}}" data-phone="{{item.send}}" data-message="{{item.message}}">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="./unread.png" style="width: 40px; height: 40px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view>{{item.name}}</view>
+        <view style="font-size: 13px;color: #888888;">{{item.message}}</view>
+      </view>
+      <view class="weui-badge new" style="margin-left: 5px;">New</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+  <view class="news" hidden="{{activeIndex!=1}}">
+    <text class="unread">{{oldmsg.length}}条已读消息</text>
+    <view wx:for="{{oldmsg}}" wx:if="{{item.state==1}}" class="weui-cell" bindtap="readed_detail" data-id="{{item.id}}" data-generate="{{item.generate}}" data-name="{{item.name}}" data-phone="{{item.send}}" data-message="{{item.message}}">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image src="./readed.png" style="width: 40px; height: 40px; display: block" />
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-cell__bd">
+          <view>{{item.name}}</view>
+          <view style="font-size: 13px;color: #888888;">{{item.message}}</view>
+        </view>
+      </view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">详细信息</view>
+    </view>
+  </view>
+</scroll-view>

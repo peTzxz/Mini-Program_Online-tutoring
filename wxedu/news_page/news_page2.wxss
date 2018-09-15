@@ -1,0 +1,7 @@
+/* news_page2.wxss */
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}

@@ -1,0 +1,10 @@
+/* news_page/result.wxss */
+.str1{
+  text-indent: 320rpx;
+  text-align: left;
+  font-size: 20px;
+  font-family: 微软雅黑;
+}
+.str2{
+ font-color:red;
+}

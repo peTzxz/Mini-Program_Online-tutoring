@@ -1,0 +1,37 @@
+<view class="page">
+  <text class="welcome">进入智能家教</text>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  </view>
+  <view class="form-common">
+
+    <view class="formc-cnt">
+      <image style="height:80rpx;width:80rpx; margin-right:40rpx" src="./account.png"></image>
+      <input name="phone" class="weui-input" type="number" bindinput="getphone" placeholder="请输入手机号" />
+    </view>
+    <view class="formc-cnt">
+      <image style="height:80rpx;width:80rpx; margin-right:40rpx" src="./psw.png"></image>
+      <input name="password" password="true" class="weui-input" bindinput="password" placeholder="请输入密码" />
+    </view>
+    <view class="formc-cnt">
+      <text style="color:#8a8a8a">选择你的身份</text>
+      <view bindtap="opengender">
+        <view style="margin-left:400rpx" class="weui-cell__ft">{{state=='1'? '学生' : '教师'}}</view>
+      </view>
+    </view>
+    <view>
+      <button style="background-color: red;opacity: {{opacity}};" type="primary" disabled='{{disable}}' bindtap="login">登录</button>
+    </view>
+
+  </view>
+  <view class="text">
+    <navigator url="./forgetpsd">
+      <text class="forget">忘记密码?</text>
+    </navigator>
+    <text class="register" bindtap="register">快速注册</text>
+  </view>
+  <navigator url="../loginbymsg/loginbymsg">
+    <text class="code">验证码登录</text>
+  </navigator>
+
+</view>

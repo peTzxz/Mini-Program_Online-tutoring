@@ -1,0 +1,17 @@
+/* question/result.wxss */
+.cate{
+  font-size: 35rpx;
+  font-weight: 700;
+}
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.canvas{
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 1;
+}

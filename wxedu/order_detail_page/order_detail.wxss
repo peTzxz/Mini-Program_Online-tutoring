@@ -1,0 +1,11 @@
+.container1{
+  margin-top: 5%;
+  height: 100%;
+  width:100%
+}
+.save {
+  background-color: #4ea3e7;
+  color: white;
+  border-radius: 5rpx;
+  /* font-size: 32rpx; */
+}

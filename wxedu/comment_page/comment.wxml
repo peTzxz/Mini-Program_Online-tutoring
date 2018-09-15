@@ -1,0 +1,46 @@
+<import src="../components/rater/rater.wxml" />
+<view class="page">
+  <view class="weui-cells__title">评分</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">态度</view>
+      <view class="weui-cell__ft">
+        <template is="rater" data="{{ ...$wux.rater.star1 }}" />
+      </view>
+    </view>
+   <view class="weui-cell">
+      <view class="weui-cell__bd">课堂内容</view>
+      <view class="weui-cell__ft">
+        <template is="rater" data="{{ ...$wux.rater.star2 }}" />
+      </view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">满意度</view>
+      <view class="weui-cell__ft">
+        <template is="rater" data="{{ ...$wux.rater.star3 }}" />
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__title">评价</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" bindinput="get_comment" placeholder="写下你对老师的评价吧~" value="{{comment}}" style="height: 3.3em" />
+      </view>
+    </view>
+  </view>
+  <view class="labels">
+    <view wx:for="{{button1}}">
+      <button class=" weui-btn" style="border-radius:0px;" type="default" plain="true" size="mini" bindtap="button1click" id="{{index}}">{{item.text}}</button>
+    </view>
+  </view>
+  <view class="labels">
+    <view wx:for="{{button2}}">
+      <button class=" weui-btn" style="border-radius:0px;" type="default" plain="true" size="mini" bindtap="button2click" id="{{index}}">{{item.text}}</button>
+    </view>
+  </view>
+  <view class="button">
+    <button class="" type="primary" plain="true" style="position:absolute;top:950rpx;left:400rpx;border-radius:0px;" bindtap="cancel">取消</button>
+    <button class="" type="primary" plain="true" style="position:absolute;top:950rpx;left:570rpx;border-radius:0px;" bindtap="submit">提交</button>
+  </view>
+</view>

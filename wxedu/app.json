@@ -1,0 +1,80 @@
+{
+  "pages": [
+   
+    "pages/one/index",
+    "cancel_order/cancel",
+    "cancel_order/cancel_detail",
+    "detail/detail",
+    "switchcity/switchcity",
+    "pages/login/login",
+    "main_page/main",
+    
+    "myrelease/release",
+    "add_release/add_release",
+    "msg/msg",
+    "msg/decide",
+    "order_detail_page/order_detail",
+    "confirm_order/confirm_order",
+    "pages/login/forgetpsd",
+    "comment_page/comment",
+    "register/register",
+    "pages/mypage/mypage",
+    "pages/service/service",
+    "pages/mydata/mydata",
+    "pages/loginbymsg/loginbymsg",
+    "check_comment/check",
+    "recommend_teacher/recommend_teacher",
+    "news_page/news_page1",
+    "news_page/news_page2",
+    "news_page/news_all",
+    "news_page/check",
+    "pages/mypage/balance",
+    "question/question",
+    "question/result",
+    "pages/mydata/name",
+    "pages/mydata/city",
+    "pages/mydata/gender",
+    "pages/mydata/introduction",
+    "pages/mydata/tgrade",
+    "pages/mydata/sgrade",
+    "pages/mydata/education",
+    "pages/mydata/address",
+    "pages/mydata/major",
+    "news_page/result",
+    "pages/one/search"
+  ],
+  "window": {
+  "navigationBarBackgroundColor": "#00c45b",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "智能家教",
+    "backgroundColor": "#efeff4",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#00c45b ",
+    "borderStyle": "white",
+    "backgroundColor": "#f7f7f8",
+    "list": [
+      {
+        "pagePath": "pages/one/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homeselect.png"
+      },
+      {
+        "pagePath": "pages/service/service",
+        "text": "查找",
+        "iconPath": "images/subject.png",
+        "selectedIconPath": "images/subjectselect.png"
+      },
+      {
+        "pagePath": "pages/mypage/mypage",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/myselect.png"
+      }
+    ]
+  }
+}

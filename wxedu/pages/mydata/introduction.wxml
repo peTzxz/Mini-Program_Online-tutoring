@@ -1,0 +1,12 @@
+<view class="weui-cells__title">个人介绍</view>
+<view class="weui-cells weui-cells_after-title">
+  <view class="weui-cell">
+    <view class="weui-cell__bd">
+      <textarea class="weui-textarea" placeholder="请输入内容" style="height: 3.3em" maxlength='100' bindinput='getIntroduction'/>
+      <view class="weui-textarea-counter">{{count}}/100</view>
+    </view>
+  </view>
+</view>
+<view style="padding:40rpx">
+  <button style="background-color: #4ea3e7;opacity: {{opacity}};" type="primary" class="btn" bindtap="submit" disabled='{{disable}}'>保存</button>
+</view>

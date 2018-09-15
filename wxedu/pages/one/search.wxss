@@ -1,0 +1,15 @@
+/* pages/one/search.wxss */
+@import "/wxSearch/wxSearch.wxss";
+.skip {
+  position: absolute;
+  margin-left: 650rpx;
+  margin-right: 30rpx;
+  top: 22rpx;
+}
+.wxSearch-input{
+  flex: 8; 
+  margin-left: 0rpx;
+  margin-right: 80rpx;
+  background-color: #eee;
+  padding: 5px 10px;
+}

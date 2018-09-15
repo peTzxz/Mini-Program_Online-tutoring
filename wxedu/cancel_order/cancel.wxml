@@ -1,0 +1,63 @@
+<import src="../components/xnumber/xnumber.wxml" />
+<import src="../components/dialog/dialog.wxml" />
+<template is="dialog" data="{{ ...$wux.dialog }}"/>
+<import src="../components/toast/toast.wxml"/>
+
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<scroll-view class="page1">
+  <view class="weui-cells__title">退订课程</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">课程名</view>
+      <view class="weui-cell__ft">{{detail[0].subject}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">教师姓名</view>
+      <view class="weui-cell__ft">{{detail[0].name}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">联系方式</view>
+      <view class="weui-cell__ft">{{detail[0].sphone}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">上课时间</view>
+      <view class="weui-cell__ft">{{detail[0].time}}</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">总课时</view>
+      <view class="weui-cell__ft">{{detail[0].times}}/次</view>
+    </view>
+    <view class="weui-cell">
+      <view class="weui-cell__bd">价格</view>
+      <view class="weui-cell__ft">{{detail[0].price}}元/小时</view>
+    </view>
+  </view>
+  <view class="weui-cells__title"></view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">已进行课时数</view>
+      <template is="xnumber" bindinput="classes" data="{{ ...$wux.xnumber.num4 }}" />
+      <view class="weui-cell__ft">/次</view>
+    </view>
+  </view>
+  <view class="weui-cells__title">最多￥{{detail[0].price*detail[0].times-$wux.xnumber.num4.value*detail[0].price}}.00,扣除已上课程￥{{$wux.xnumber.num4.value*detail[0].price}}.00</view>
+  <view class="weui-cells__title"></view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">退款金额</view>￥
+      <input name="address" style="width:80rpx" class="weui-input" bindinput="price" />.00
+      <view class="weui-cell__ft"></view>
+    </view>
+  </view>
+  <view class="weui-cells__title">退课理由</view>
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea name="introduction" class="weui-textarea" placeholder="请输入退课理由" style="height: 3.3em" bindblur="reason"/>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view class="container4">
+  <button class="confirm" bindtap="confirm" >退课</button>
+</view>
